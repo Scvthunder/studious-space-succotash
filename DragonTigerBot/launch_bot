@@ -1,0 +1,21 @@
+#!/bin/bash
+# This script should be in /workspaces/studious-space-succotash/DragonTigerBot/
+
+# Ensure we are in the script's directory (or the bot's directory)
+# cd "$(dirname "$0")" 
+# OR if launch_bot is always in DragonTigerBot and main.py is there:
+cd /workspaces/studious-space-succotash/DragonTigerBot
+
+echo "Current directory: $(pwd)"
+echo "Launching bot..."
+
+# Suppress Qt messages and set platform to offscreen for headless environments
+export QT_LOGGING_RULES="*.debug=false;*.warning=false;qt.*=false;qt.qpa.*=false"
+export QT_QPA_PLATFORM=offscreen
+
+# It's good practice to ensure Python uses the intended environment/version
+# For example, if you have a virtual environment:
+# source /path/to/your/venv/bin/activate
+
+# Run the main Python script
+python main.py
